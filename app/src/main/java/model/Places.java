@@ -1,3 +1,5 @@
+package model;
+
 import java.util.UUID;
 
 public class Places {
@@ -10,17 +12,18 @@ public class Places {
     private String mPrice;
     private Double mLat;
     private Double mLon;
+    private int  mImageResourceId;
 
     public Places(){
         //Generate unique identifier
         mId = UUID.randomUUID();
     }
 
-    public Places(UUID mId, String mTitle,
+   public Places(UUID mId, String mTitle,
                   String mCode,
                   String mDescription,
                   String mAddress, String mSchedule,
-                  String mPrice, Double mLat, Double mLon) {
+                  String mPrice, Double mLat, Double mLon, int mImageResourceId) {
 
         this.mId = mId;
         this.mTitle = mTitle;
@@ -31,6 +34,7 @@ public class Places {
         this.mPrice = mPrice;
         this.mLat = mLat;
         this.mLon = mLon;
+        this.mImageResourceId = mImageResourceId;
 
     }
 
@@ -101,4 +105,13 @@ public class Places {
     public void setLon(Double mLon) {
         this.mLon = mLon;
     }
+
+    public int getmImageResourceId() {
+        return mImageResourceId;
+    }
+
+    public void setmImageResourceId(int mImageResourceId) {
+        this.mImageResourceId = mImageResourceId;
+    }
+
 }

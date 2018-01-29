@@ -1,3 +1,5 @@
+package DB;
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -22,7 +24,8 @@ public class PlacesBaseHelper extends SQLiteOpenHelper {
                 PlacesDBSchema.PlaceTable.Cols.Schedule + ", " +
                 PlacesDBSchema.PlaceTable.Cols.Price + ", " +
                 PlacesDBSchema.PlaceTable.Cols.Lat + ", " +
-                PlacesDBSchema.PlaceTable.Cols.Lon +
+                PlacesDBSchema.PlaceTable.Cols.Lon + ", " +
+                PlacesDBSchema.PlaceTable.Cols.ImageResourceId +
                 ")"
         );
     }

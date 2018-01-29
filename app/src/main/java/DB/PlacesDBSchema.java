@@ -1,3 +1,4 @@
+package DB;
 
 public class PlacesDBSchema {
     public static final class PlaceTable{
@@ -13,6 +14,7 @@ public class PlacesDBSchema {
             public static final String Price = "0.0";
             public static final Double Lat = 0.0;
             public static final Double Lon = 0.0;
+            public static final int ImageResourceId = 0;
         }
     }
 }
