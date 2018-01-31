@@ -1,5 +1,6 @@
 package Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,8 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.home.sofiatourguide.MainActivity;
+import com.example.home.sofiatourguide.PlacesPagerActivity;
 import com.example.home.sofiatourguide.R;
 
 import java.util.List;
@@ -33,12 +35,23 @@ public class PlacesListFragment extends Fragment {
         updateUI();
         return view;
     }
+    @Override
+    public void onResume(){
+        super.onResume();
+        updateUI();
+    }
     private void updateUI(){
         PlaceLabSingleton placeLabSingleton = PlaceLabSingleton.get(getActivity());
         List<Places> places = placeLabSingleton.getPlaces();
-
-        mAdapter = new PlaceAdapter(places);
-        mPlacesRecycleView.setAdapter(mAdapter);
+        if(mAdapter ==null) {
+            mAdapter = new PlaceAdapter(places);
+            mPlacesRecycleView.setAdapter(mAdapter);
+        }
+        else{
+            mAdapter.notifyDataSetChanged();
+        }
+        //ако има промяна в активитито тя се отбелязва, като в случая notifyDataSetChanged е
+        // лесен начин да се презаредят всички съществуващи айтъми, които са видими
     }
 
     private class PlacesHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
@@ -55,9 +68,11 @@ public class PlacesListFragment extends Fragment {
             mPlaces = places;
             mTitleTextView.setText(mPlaces.getTitle());
         }
+
         @Override
         public void onClick(View v){
-            Toast.makeText(getActivity(), mPlaces.getTitle(),Toast.LENGTH_SHORT).show();
+            Intent intent = PlacesPagerActivity.newIntent(getActivity(),mPlaces.getId());
+            startActivity(intent);//Стартира активити от фрагмент->това идва от PlacesPagerActivity
         }
 
     }
