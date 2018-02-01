@@ -1,10 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <EditText android:id="@+id/crime_title"
+    <ImageView
+        android:id="@+id/crime_image_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="160dp"
+        android:contentDescription="@string/image_view"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bobbys"/>
+    <TextView
+        android:id="@+id/crime_title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:hint="@string/crime_title_hint"
+        style="?android:listSeparatorTextViewStyle"
+        />
+    <TextView
+        android:id="@+id/crime_address_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="@string/crime_title_hint"
+        tools:text="Address"
+        android:text="Address: bul. Bulgaria 10"
+        style="?android:listSeparatorTextViewStyle"
+        />
+    <TextView
+        android:id="@+id/crime_schedule_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="@string/crime_title_hint"
+        tools:text="Open"
+        android:text="Open: from 10 AM to 12AM"
+        style="?android:listSeparatorTextViewStyle"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:text="Description: "
+        style="@android:style/TextAppearance.DeviceDefault.Medium"
+        />
+    <TextView
+        android:id="@+id/crime_description_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="@string/crime_title_hint"
+        android:text="Very stinky place"
+        style="@android:style/TextAppearance.DeviceDefault.Small"
         />
 </LinearLayout>

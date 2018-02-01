@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.home.sofiatourguide.MainActivity;
 import com.example.home.sofiatourguide.R;
@@ -20,10 +22,17 @@ import singleton.PlaceLabSingleton;
 public class PlacesFragment extends Fragment {
 
     private Places mPlace;
-    private EditText mTitleField;
+
+    private TextView mTitleField;
+    private TextView mAddressFiled;
+    private TextView mSchedule;
+    private TextView mDescripotion;
+    private ImageView mImageView;
+
     private static final String ARG_PLACE_ID = "place_id";
 
     public static PlacesFragment newInstance(UUID placeID){
+
         Bundle args = new Bundle();
         args.putSerializable(ARG_PLACE_ID, placeID);
 
@@ -48,7 +57,13 @@ public class PlacesFragment extends Fragment {
     public View onCreateView(LayoutInflater  inflater, ViewGroup parent,
                              Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.frame_places,parent,false);
-        mTitleField = (EditText) v.findViewById(R.id.crime_title);
+        mTitleField = (TextView) v.findViewById(R.id.crime_title);
+
+        mImageView = v.findViewById(R.id.crime_image_view);
+        mAddressFiled = v.findViewById(R.id.crime_address_text_view);
+        mSchedule = v.findViewById(R.id.crime_schedule_text_view);
+        mDescripotion = v.findViewById(R.id.crime_description_text_view);
+
         mTitleField.setText(mPlace.getTitle());
         return v;
         //Връща view-то
