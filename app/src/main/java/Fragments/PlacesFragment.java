@@ -45,10 +45,12 @@ public class PlacesFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater  inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater  inflater, ViewGroup parent,
                              Bundle savedInstanceState){
         //mTitleField.setText(mPlace.getTitle());
-        View v = inflater.inflate(R.layout.fragment_list_recycleview,container,false);
+        View v = inflater.inflate(R.layout.frame_places,parent,false);
+        mTitleField = (EditText) v.findViewById(R.id.crime_title);
+        mTitleField.setText(mPlace.getTitle());
         return v;
         //Връща view-то
     }

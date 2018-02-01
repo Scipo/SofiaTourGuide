@@ -19,7 +19,7 @@ public class PlaceLabSingleton {
     //Create/Load Objects
     private PlaceLabSingleton(Context context){
         mPlaces = new ArrayList<>();
-        for(int i=0; i<100;i++){
+        for(int i=0; i<10;i++){
             Places places = new Places();
             places.setTitle("Place #" + i);
             mPlaces.add(places);
