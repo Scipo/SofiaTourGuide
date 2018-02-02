@@ -6,6 +6,9 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -25,6 +28,12 @@ public class PlacesListFragment extends Fragment {
     private PlaceAdapter mAdapter;
 
     @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);// необходим е за да получава колбеци от менюто
+        setHasOptionsMenu(true);
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
         View view = inflater.inflate(R.layout.fragment_list_recycleview,container,false);
@@ -35,11 +44,35 @@ public class PlacesListFragment extends Fragment {
         updateUI();
         return view;
     }
+
     @Override
     public void onResume(){
         super.onResume();
         updateUI();
     }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.fragment_place_list_menu,menu);
+    }
+    //Менюто се управлява чрез колбеци от Activity класът.
+    //Когато имаме нуждаот менюто Андроид извиква onCreateOptionsMenu на Activity класът
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.menu_add_places:
+                Places places = new Places();
+                PlaceLabSingleton.get(getActivity()).addPlaces(places);
+                Intent intent = PlacesPagerActivity.newIntent(getActivity(),places.getId());
+                startActivity(intent);
+                return true;//не е необходим по нататъчен процес след като е избрано
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        //необходимостта на този метод е за да има respond когато се избере от MenuItem
+    }
+
     private void updateUI(){
         PlaceLabSingleton placeLabSingleton = PlaceLabSingleton.get(getActivity());
         List<Places> places = placeLabSingleton.getPlaces();

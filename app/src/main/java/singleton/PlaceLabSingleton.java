@@ -18,13 +18,19 @@ public class PlaceLabSingleton {
     }
     //Create/Load Objects
     private PlaceLabSingleton(Context context){
-        mPlaces = new ArrayList<>();
-        for(int i=0; i<10;i++){
+        mPlaces = new ArrayList<>();//това остава
+        for(int i=0; i<10;i++){//това трябва да се махне от тук
             Places places = new Places();
             places.setTitle("Place #" + i);
             mPlaces.add(places);
-        }
+        }//дотук но за сега ще остане
+
     }
+
+    public void addPlaces(Places places){
+        mPlaces.add(places);//добавяне на нови места
+    }
+
     public List<Places>getPlaces(){
         return  mPlaces;
     }

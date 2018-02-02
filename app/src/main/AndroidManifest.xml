@@ -15,9 +15,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-        </activity>
-        <activity android:name=".PlacesPagerActivity">
+        <activity
+            android:name=".PlacesPagerActivity"
+            android:parentActivityName =".PlacesPagerActivity">
         </activity>
     </application>
 

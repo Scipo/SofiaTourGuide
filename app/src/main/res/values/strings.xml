@@ -2,4 +2,5 @@
     <string name="app_name">SofiaTourGuide</string>
     <string name="crime_title_hint">This is a test.</string>
     <string name="image_view">This is a image view</string>
+    <string name="menu_new_place">add new place</string>
 </resources>

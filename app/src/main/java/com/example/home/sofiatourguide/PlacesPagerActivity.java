@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 
 import java.util.List;
 import java.util.UUID;
@@ -16,7 +16,7 @@ import Fragments.PlacesFragment;
 import model.Places;
 import singleton.PlaceLabSingleton;
 
-public class PlacesPagerActivity extends FragmentActivity{
+public class PlacesPagerActivity extends AppCompatActivity{
 
     private static final String extra_place_id = "com.example.home.placeIntent.place_id";
 
@@ -57,4 +57,5 @@ public class PlacesPagerActivity extends FragmentActivity{
             }
         }
     }
+
 }
