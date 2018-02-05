@@ -2,6 +2,7 @@ package com.example.home.sofiatourguide;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import java.util.UUID;
@@ -27,6 +28,4 @@ public class MainActivity extends SingleFragmentActivity {
         UUID placeID = (UUID) getIntent().getSerializableExtra(extra_place_id);
         return PlacesFragment.newInstance(placeID);
     }
-
-
 }

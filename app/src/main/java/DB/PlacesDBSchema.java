@@ -2,7 +2,7 @@ package DB;
 
 public class PlacesDBSchema {
     public static final class PlaceTable{
-        public  static final String NAME = "name";
+        public  static final String TABLE_NAME = "places";
 
         public static final class Cols{
             public static final String UUID = "uuid";

@@ -5,6 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
+import DB.PlacesBaseHelper;
+
 public abstract class SingleFragmentActivity extends AppCompatActivity {
     protected abstract Fragment createFragment();
 
@@ -22,5 +24,8 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
                     .add(R.id.fragment_container,fragment)
                     .commit();
         }
+
+        // creates database
+        PlacesBaseHelper db = new PlacesBaseHelper(this);
     }
 }
