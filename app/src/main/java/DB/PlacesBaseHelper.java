@@ -5,8 +5,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import java.util.List;
+
+import model.Places;
+
 public class PlacesBaseHelper extends SQLiteOpenHelper {
-    private static final int VERSION = 2;
+    private static final int VERSION = 3;
     private static final String DATABASE_NAME ="placeDBase.db";
     private static final String SQL_CREATE_PLACES_TABLE =
         "CREATE TABLE " + Places.TABLE_NAME + " (" +
@@ -19,7 +23,7 @@ public class PlacesBaseHelper extends SQLiteOpenHelper {
                 Places.PRICE + " REAL," +
                 Places.LAT + " REAL," +
                 Places.LON + " REAL," +
-                Places.IMAGE_ID + " TEXT);";
+                Places.IMAGE_ID + " INTEGER);";
     private static final String SQL_DROP_PLACES_TABLE = "DROP TABLE IF EXISTS " + Places.TABLE_NAME + ";";
     private static final String LOG_TAG = "database_log";
 
@@ -42,6 +46,12 @@ public class PlacesBaseHelper extends SQLiteOpenHelper {
 
         super(context,DATABASE_NAME,null, VERSION);
         SQLiteDatabase db = this.getWritableDatabase();
+
+        PlacesCRUD crud = new PlacesCRUD(this);
+        List<model.Places> allPlaces = crud.GetAll();
+        if (allPlaces.size() == 0) {
+            crud.Seed();
+        }
     }
 
     @Override

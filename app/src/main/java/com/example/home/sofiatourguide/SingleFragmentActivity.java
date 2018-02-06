@@ -4,8 +4,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
+
+import java.util.List;
 
 import DB.PlacesBaseHelper;
+import DB.PlacesCRUD;
+import model.Places;
 
 public abstract class SingleFragmentActivity extends AppCompatActivity {
     protected abstract Fragment createFragment();
@@ -27,5 +32,8 @@ public abstract class SingleFragmentActivity extends AppCompatActivity {
 
         // creates database
         PlacesBaseHelper db = new PlacesBaseHelper(this);
+        /*PlacesCRUD crud = new PlacesCRUD(db);
+        List<Places> allPlaces = crud.GetAll();
+        Toast.makeText(this, allPlaces.get(0).getTitle(), Toast.LENGTH_SHORT).show();*/
     }
 }

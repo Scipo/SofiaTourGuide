@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.home.sofiatourguide.R;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -104,7 +106,7 @@ public class PlacesCRUD {
             Double price = cursor.getDouble(cursor.getColumnIndexOrThrow(PlacesBaseHelper.Places.PRICE));
             Double lat = cursor.getDouble(cursor.getColumnIndexOrThrow(PlacesBaseHelper.Places.LAT));
             Double lon = cursor.getDouble(cursor.getColumnIndexOrThrow(PlacesBaseHelper.Places.LON));
-            String imageId = cursor.getString(cursor.getColumnIndexOrThrow(PlacesBaseHelper.Places.IMAGE_ID));
+            int imageId = cursor.getInt(cursor.getColumnIndexOrThrow(PlacesBaseHelper.Places.IMAGE_ID));
 
             Places current = new Places(
                     UUID.fromString(uuid),
@@ -127,18 +129,45 @@ public class PlacesCRUD {
     }
 
     public void Seed() {
-        for (int i = 0; i < 3; i++) {
-            Places place = new Places(
-                    "title " + Integer.toString(i + 1),
-                    "1234",
-                    "1234",
-                    "1234",
-                    "1234",
-                    1.0,
-                    1.0,
-                    1.0,
-                    "1234");
+        List<Places> seedPlaces = new ArrayList<>();
 
+        seedPlaces.add(new Places(
+                "Alexander Nevsky Cathedral",
+                "",
+                "The St. Alexander Nevsky Cathedral (Bulgarian: Храм-паметник „Свети Александър Невски“, Hram-pametnik „Sveti Aleksandar Nevski“) is a Bulgarian Orthodox cathedral in Sofia, the capital of Bulgaria. Built in Neo-Byzantine style, it serves as the cathedral church of the Patriarch of Bulgaria and it is one of the largest Eastern Orthodox cathedrals in the world, as well as one of Sofia's symbols and primary tourist attractions. The St. Alexander Nevsky Cathedral in Sofia occupies an area of 3,170 square metres (34,100 sq ft) and can hold 10,000 people inside. It is the second-largest cathedral located on the Balkan Peninsula, after the Cathedral of Saint Sava in Belgrade",
+                "st. Alexander Nevsky square",
+                "07:00 – 19:00",
+                0.,
+                42.6958103,
+                23.332901,
+                R.drawable.alexander_nevsky
+        ));
+
+        seedPlaces.add(new Places(
+                "National Historical Museum",
+                "",
+                "The National Historical Museum (Национален исторически музей, Natsionalen istoricheski muzey) in Sofia is Bulgaria's largest museum. It was founded on 5 May 1973. A new representative exhibition was opened in the building of the Court of Justice on 2 March 1984, to commemorate the 13th centenary of the Bulgarian state.",
+                "16 Vitoshko lale str.",
+                "9:30 - 18:00",
+                10.,
+                42.6549786,
+                23.270883,
+                R.drawable.national_historical_museum
+        ));
+
+        seedPlaces.add(new Places(
+                "National Palace of Culture",
+                "",
+                "",
+                "1 Bulgaria bul.",
+                "9:00 - 19:00",
+                0.,
+                42.6847265,
+                23.3189374,
+                R.drawable.ndk
+        ));
+
+        for (Places place: seedPlaces) {
             this.insert(place);
         }
     }

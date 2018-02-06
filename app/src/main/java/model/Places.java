@@ -12,7 +12,7 @@ public class Places {
     private Double mPrice;
     private Double mLat;
     private Double mLon;
-    private String mImageResourceId;
+    private int mImageResourceId;
 
     public Places(){
         //Generate unique identifier
@@ -23,7 +23,7 @@ public class Places {
                   String mCode,
                   String mDescription,
                   String mAddress, String mSchedule,
-                  Double mPrice, Double mLat, Double mLon, String mImageResourceId) {
+                  Double mPrice, Double mLat, Double mLon, int mImageResourceId) {
 
         this();
         this.mTitle = mTitle;
@@ -42,7 +42,7 @@ public class Places {
                   String mCode,
                   String mDescription,
                   String mAddress, String mSchedule,
-                  Double mPrice, Double mLat, Double mLon, String mImageResourceId) {
+                  Double mPrice, Double mLat, Double mLon, int mImageResourceId) {
 
         this.mId = mId;
         this.mTitle = mTitle;
@@ -125,11 +125,11 @@ public class Places {
         this.mLon = mLon;
     }
 
-    public String getmImageResourceId() {
+    public int getmImageResourceId() {
         return mImageResourceId;
     }
 
-    public void setmImageResourceId(String mImageResourceId) {
+    public void setmImageResourceId(int mImageResourceId) {
         this.mImageResourceId = mImageResourceId;
     }
 
