@@ -1,5 +1,6 @@
 package Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import com.example.home.sofiatourguide.R;
 import java.util.UUID;
 
 import model.Places;
+import service.PlacesService;
 import singleton.PlaceLabSingleton;
 
 public class PlacesFragment extends Fragment {
@@ -48,6 +50,9 @@ public class PlacesFragment extends Fragment {
         UUID plаceID = (UUID) getArguments().getSerializable(ARG_PLACE_ID);
         mPlace = PlaceLabSingleton.get(getActivity()).getPlaces(plаceID);
         //обработва на IDто
+        Intent i = PlacesService.newIntent(getActivity());
+        getActivity().startService(i);
+        //стартира сървиса
     }
 
     @Override
