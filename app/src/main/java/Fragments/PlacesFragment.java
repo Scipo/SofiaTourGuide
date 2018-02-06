@@ -50,9 +50,6 @@ public class PlacesFragment extends Fragment {
         UUID plаceID = (UUID) getArguments().getSerializable(ARG_PLACE_ID);
         mPlace = PlaceLabSingleton.get(getActivity()).getPlaces(plаceID);
         //обработва на IDто
-        Intent i = PlacesService.newIntent(getActivity());
-        getActivity().startService(i);
-        //стартира сървиса
     }
 
     @Override
