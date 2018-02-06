@@ -9,21 +9,40 @@ public class Places {
     private String mDescription;
     private String mAddress;
     private String mSchedule;
-    private String mPrice;
+    private Double mPrice;
     private Double mLat;
     private Double mLon;
-    private int  mImageResourceId;
+    private String mImageResourceId;
 
     public Places(){
         //Generate unique identifier
         mId = UUID.randomUUID();
     }
 
+    public Places(String mTitle,
+                  String mCode,
+                  String mDescription,
+                  String mAddress, String mSchedule,
+                  Double mPrice, Double mLat, Double mLon, String mImageResourceId) {
+
+        this();
+        this.mTitle = mTitle;
+        this.mCode = mCode;
+        this.mDescription = mDescription;
+        this.mAddress = mAddress;
+        this.mSchedule = mSchedule;
+        this.mPrice = mPrice;
+        this.mLat = mLat;
+        this.mLon = mLon;
+        this.mImageResourceId = mImageResourceId;
+
+    }
+
    public Places(UUID mId, String mTitle,
                   String mCode,
                   String mDescription,
                   String mAddress, String mSchedule,
-                  String mPrice, Double mLat, Double mLon, int mImageResourceId) {
+                  Double mPrice, Double mLat, Double mLon, String mImageResourceId) {
 
         this.mId = mId;
         this.mTitle = mTitle;
@@ -82,11 +101,11 @@ public class Places {
         this.mSchedule = mSchedule;
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return mPrice;
     }
 
-    public void setPrice(String mPrice) {
+    public void setPrice(Double mPrice) {
         this.mPrice = mPrice;
     }
 
@@ -106,11 +125,11 @@ public class Places {
         this.mLon = mLon;
     }
 
-    public int getmImageResourceId() {
+    public String getmImageResourceId() {
         return mImageResourceId;
     }
 
-    public void setmImageResourceId(int mImageResourceId) {
+    public void setmImageResourceId(String mImageResourceId) {
         this.mImageResourceId = mImageResourceId;
     }
 

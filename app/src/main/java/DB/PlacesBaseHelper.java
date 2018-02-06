@@ -6,13 +6,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 public class PlacesBaseHelper extends SQLiteOpenHelper {
-    private static final int VERSION = 1;
+    private static final int VERSION = 2;
     private static final String DATABASE_NAME ="placeDBase.db";
     private static final String SQL_CREATE_PLACES_TABLE =
         "CREATE TABLE " + Places.TABLE_NAME + " (" +
-                Places.ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                Places.UUID + " TEXT PRIMARY KEY," +
                 Places.NAME + " TEXT," +
                 Places.DESCRIPTION + " TEXT," +
+                Places.CODE + " TEXT," +
                 Places.ADDRESS + " TEXT," +
                 Places.SCHEDULE + " TEXT," +
                 Places.PRICE + " REAL," +
@@ -23,11 +24,12 @@ public class PlacesBaseHelper extends SQLiteOpenHelper {
     private static final String LOG_TAG = "database_log";
 
     // places table name and columns
-    private static final class Places {
+    public static final class Places {
         public static final String TABLE_NAME = "places";
-        public static final String ID = "id";
+        public static final String UUID = "id";
         public static final String NAME = "name";
         public static final String DESCRIPTION = "description";
+        public static final String CODE = "code";
         public static final String ADDRESS = "address";
         public static final String SCHEDULE = "schedule";
         public static final String PRICE = "price";
@@ -69,5 +71,4 @@ public class PlacesBaseHelper extends SQLiteOpenHelper {
         onCreate(db);
         Log.i(LOG_TAG, "Database and places table upgraded");
     }
-
 }
