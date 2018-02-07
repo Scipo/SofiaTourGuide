@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.UUID;
 
-public class Places {
+public class Places implements Serializable {
     private UUID mId;
     private String mTitle;
     private String mCode;

@@ -128,6 +128,8 @@ public class PlacesCRUD {
         return places;
     }
 
+    // find by uuid
+
     public void Seed() {
         List<Places> seedPlaces = new ArrayList<>();
 
@@ -158,7 +160,9 @@ public class PlacesCRUD {
         seedPlaces.add(new Places(
                 "National Palace of Culture",
                 "",
-                "",
+                "The National Palace of Culture (Национален дворец на културата, Natsionalen dvorets na kulturata; abbreviated as НДК, NDK), located in Sofia, the capital of Bulgaria, is the largest, multifunctional conference and exhibition centre in south-eastern Europe. It was opened in 1981 in celebration of Bulgaria's 1300th anniversary.\n" +
+                        "\n" +
+                        "The centre was initiated at the suggestion of Lyudmila Zhivkova, daughter of the communist leader of the former People's Republic of Bulgaria Todor Zhivkov. The project was designed by a team of Bulgarian and foreign architects led by Alexander Georgiev Barov (1931–1999) along with Ivan Kanazirev. The landscaping of Bulgaria Square in front of the National Palace of Culture was designed by another team of architects and landscape engineers, led by Atanas Agura. Internally, the building exhibits a unified style, employing an octagonal motif and heavy, dark colours. Large bright murals depicting historical figures and events cover the main wall of many of the smaller halls.",
                 "1 Bulgaria bul.",
                 "9:00 - 19:00",
                 0.,
