@@ -171,6 +171,50 @@ public class PlacesCRUD {
                 R.drawable.ndk
         ));
 
+        seedPlaces.add(new Places(
+                "National Art Gallery",
+                "",
+                "The National Museum of Bulgarian Art is the largest and most respectable institution of its kind in Bulgaria. Over the years, it has established its position as a center for national cultural heritage and values.\n" + " The collection was started in 1892 when the People’s Museum of Archeology founded its Department of Art. By virtue of an express resolution of the Council of Ministers in 1948 NMBA (National Art Gallery) was pronounced an independent entity. ",
+                "1, Knyaz Alexander I Sqr.",
+                "10:00 - 18:00",
+                10.,
+                42.6963229,
+                23.3248921,
+                R.drawable.nacgaleria
+                ));
+        seedPlaces.add(new Places(
+                "National museum of natural history",
+                "",
+                "NMNHS is the only national institution directly engaged with the preservation of scientific collections of live and non-live nature from Bulgaria and the world. The study of biodiversity, environmental protection and the evolution of organisms are the museum’s major priorities",
+                "1 Tsar Osvoboditel Blvd",
+                "10:00-18:00",
+                5.,
+                42.6963229,
+                23.3248921,
+                R.drawable.national_natural_history_museum
+        ));
+        seedPlaces.add(new Places(
+                "Sofia Art Gallery",
+                "",
+                "In 1928, on the occasion of the celebrations of the semi-centennial anniversary of the Liberation of Sofia and the Millennium of the Golden Age of the Bulgarian literacy and culture, the then Mayor of the city General Vladimir Vazov issued a decree for setting up a special commission which would identify the methods and means for establishment of Sofia Municipal Museum.",
+                "1, Gen. Gurko str.",
+                "10:00 - 18:30",
+                0.,
+                42.6963229,
+                23.3248921,
+                R.drawable.sghg
+        ));
+        seedPlaces.add(new Places(
+           "Serdika Amphitheater",
+             "",
+             "The Arena of Serdica is 60.5 m long and 43 m wide. However, the Amphitheatre of Serdica is the only one in the world, combining a Roman theatre and a late antique amphitheatre in one place and the only such public building in the Balkans.",
+              "4, Budapeshta str.",
+                "24/7",
+                0.,
+                42.6960034,
+                23.3271875,
+                R.drawable.coliseum
+        ));
         for (Places place: seedPlaces) {
             this.insert(place);
         }
