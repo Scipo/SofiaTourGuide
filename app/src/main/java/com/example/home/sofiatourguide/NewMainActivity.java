@@ -15,6 +15,7 @@ import java.util.List;
 import DB.PlacesBaseHelper;
 import DB.PlacesCRUD;
 import model.Places;
+import service.DistanceService;
 
 public class NewMainActivity extends AppCompatActivity {
     private ListView placesListView;
@@ -24,6 +25,15 @@ public class NewMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_new);
         this.populatePlaces();
+        Intent intent = new Intent(this, DistanceService.class);
+        startService(intent);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Intent intent = new Intent(this, DistanceService.class);
+        stopService(intent);
     }
 
     private void populatePlaces() {
