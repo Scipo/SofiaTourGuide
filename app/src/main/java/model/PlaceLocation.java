@@ -1,14 +1,14 @@
-package service;
+package model;
 
 /**
  * Created by Mitko on 7.2.2018 г..
  */
 
-public class Location {
+public class PlaceLocation {
     private String latitude;
     private String longitude;
 
-    public Location(String lat, String lon) {
+    public PlaceLocation(String lat, String lon) {
         this.latitude = lat;
         this.longitude = lon;
     }
