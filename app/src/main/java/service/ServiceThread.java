@@ -11,6 +11,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.home.sofiatourguide.NewMainActivity;
+import com.example.home.sofiatourguide.PlaceDetails;
 import com.example.home.sofiatourguide.R;
 
 import java.util.List;
@@ -64,6 +65,27 @@ public class ServiceThread implements Runnable {
 
             if(nearestPlace != null){
                 Log.i("PLACE", nearestPlace.getTitle());
+
+                NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, "asd")
+                        //.setSmallIcon(R.drawable.notification_icon)
+                        .setContentTitle("Landmark nearby")
+                        .setContentText(String.format("%s is nearby. You should definitely check it out.", nearestPlace.getTitle()));
+
+                Intent resultIntent = new Intent(context, PlaceDetails.class);
+                PendingIntent resultPendingIntent =
+                        PendingIntent.getActivity(
+                                context,
+                                0,
+                                resultIntent,
+                                PendingIntent.FLAG_UPDATE_CURRENT
+                        );
+
+                resultIntent.putExtra("place", nearestPlace);
+                mBuilder.setContentIntent(resultPendingIntent);
+                int mNotificationId = 001;
+                NotificationManager mNotifyMgr =
+                        (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
+                mNotifyMgr.notify(mNotificationId, mBuilder.build());
             }
 
             try {
