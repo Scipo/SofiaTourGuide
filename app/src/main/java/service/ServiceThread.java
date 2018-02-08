@@ -1,13 +1,21 @@
 package service;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.location.Location;
+import android.support.v4.app.NotificationCompat;
+import android.util.Log;
+
+import com.example.home.sofiatourguide.NewMainActivity;
+import com.example.home.sofiatourguide.R;
 
 import java.util.List;
 
 import DB.PlacesBaseHelper;
 import DB.PlacesCRUD;
-import model.PlaceLocation;
 import model.Places;
 
 /**
@@ -18,8 +26,10 @@ import model.Places;
 public class ServiceThread implements Runnable {
     private PlacesCRUD crud;
     private LocationService locationService;
+    private Context context;
 
     public ServiceThread(Context context) {
+        this.context = context;
         this.crud = new PlacesCRUD(new PlacesBaseHelper(context));
         this.locationService = new LocationService(context);
     }
@@ -34,32 +44,35 @@ public class ServiceThread implements Runnable {
 
     @Override
     public void run() {
-        while (true) {
+        while (!Thread.currentThread().isInterrupted()) {
             List<Places> allPlaces = crud.GetAll();
-            Location currentLocation = this.getCurrentLocation();
             Places nearestPlace = null;
 
-            // TODO: на всеки 30 минути взима текущото местоположение и намира най-близкия обект от allPlaces (имат си и те lat, lon)
-            // TODO: ако най-близкият обект е на по-малко от километър от нас, да създаде notification еди кво си е наблизо ходи го виж
-            // сървиса съм го направил да се стартира заедно с приложението и да умира заедно с него така че можеш да си тестваш спокойно
+            Double minDiff = Double.MAX_VALUE;
+
+            for(Places place: allPlaces){
+                Double diff = Math.abs((place.getLat() + place.getLon()) -
+                        (NewMainActivity.latitude + NewMainActivity.longitude));
+                if(minDiff > diff){
+                    minDiff = diff;
+                    nearestPlace = place;
+                }
+            }
+
+            if(nearestPlace != null){
+                Log.i("PLACE", nearestPlace.getTitle());
+                // https://stackoverflow.com/questions/1207269/sending-a-notification-from-a-service-in-android
+                // TODO: тъпия notification
+//                Intent intent = new Intent();
+//                PendingIntent pIntent = PendingIntent.getActivity(context, 0, intent, 0);
+//                Notification.Builder notification = new Notification.Builder(context)
+//                        .setTicker("TickerTitle")
+//                        .setContentTitle("Content Title")
+//                        .setContentText("Content Text");
+            }
 
             try {
-                wait(30 * 60 * 1000);
-                Double minDiff = Double.MAX_VALUE;
-
-                for(Places place: allPlaces){
-                    Double diff = Math.abs((place.getLat() + place.getLon()) -
-                            (currentLocation.getLatitude() + currentLocation.getLongitude()));
-                    if(minDiff > diff){
-                        minDiff = diff;
-                        nearestPlace = place;
-                    }
-
-                    if(nearestPlace != null){
-                        // TODO Need to build the notification with the found place
-                        // https://stackoverflow.com/questions/1207269/sending-a-notification-from-a-service-in-android
-                    }
-                }
+                Thread.sleep(30 * 60 * 1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
