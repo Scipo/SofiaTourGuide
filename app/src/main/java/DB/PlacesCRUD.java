@@ -215,6 +215,54 @@ public class PlacesCRUD {
                 23.3271875,
                 R.drawable.coliseum
         ));
+        seedPlaces.add(new Places(
+                "Boyana Church",
+                "",
+                "The Boyana Church (Bulgarian: Боянска църква, Boyanska tsărkva) is a medieval Bulgarian Orthodox church situated on the outskirts of Sofia, the capital of Bulgaria, in the Boyana quarter. In 1979, the building was added to the UNESCO World Heritage List.\n" +
+                        "\n" +
+                        "The east wing of the two-storey church was originally constructed in the late 10th or early 11th century, then the central wing was added in the 13th century under the Second Bulgarian Empire, the whole building being finished with a further expansion to the west in the middle of the 19th century. A total of 89 scenes with 240 human images are depicted on the walls of the church.",
+                "3 Boyansko ezero str.",
+                "09:30 - 18:00",
+                10.,
+                42.6446313,
+                23.2661834,
+                R.drawable.boyana_church
+        ));
+        seedPlaces.add(new Places(
+                "Largo",
+                "",
+                "The Largo is an architectural ensemble of three Socialist Classicism edifices in central Sofia, the capital of Bulgaria, designed and built in the 1950s with the intention to become the city's new representative centre. Today it is regarded as one of the prime examples of Socialist Classicism architecture in Southeastern Europe, as well as one of the main landmarks of Sofia.\n" +
+                        "\n" +
+                        "The ensemble consists of the former Party House (former headquarters of the now defunct Bulgarian Communist Party), now used as administrative offices by the National Assembly of Bulgaria, in the centre, and two side edifices: one today accommodating the TZUM department store and the Council of Ministers of Bulgaria and another that is today occupied by the President's Office, the Sofia Hotel Balkan and the Ministry of Education.",
+                "Nezavisimost square",
+                "24/7",
+                0.,
+                42.697795,
+                23.323083,
+                R.drawable.largo
+        ));
+        seedPlaces.add(new Places(
+                "Ivan Vazov National Theatre",
+                "",
+                "The Ivan Vazov National Theatre (Bulgarian: Народен театър „Иван Вазов“, Naroden teatar „Ivan Vazov“) is Bulgaria's national theatre, as well as the oldest and most authoritative theatre in the country and one of the important landmarks of Sofia, the capital of Bulgaria. It is located in the centre of the city, with the facade facing the City Garden.\n" +
+                        "\n" +
+                        "Founded in 1904 by the artists from the Salza i Smyah company, it was initially called simply the National Theatre, but before being named after the prominent writer Ivan Vazov it also bore the name of Krastyu Sarafov between 1952 and 1962. Incidentally Vazov's play, \"The Outcasts\" was the first to be performed at the theatre when it opened. The theatre's Neoclassical building, designed by famous Viennese theatre architects Hermann Helmer and Ferdinand Fellner, was finished in 1906 and opened on 3 January 1907. The building was extensively damaged by a fire in 1923 during an anniversary celebration, but was reconstructed in 1929 by German architect Martin Dülfer.\n" +
+                        "\n" +
+                        "A theatrical school was established as part of the National Theatre in 1925. The bombing of Sofia in World War II caused considerable damage to the building, but it was reconstructed in 1945. Another reconstruction followed in 1971–1975, and a €100,000 restoration project was implemented in 2006.\n" +
+                        "\n" +
+                        "The Ivan Vazov National Theatre has a well-equipped main stage with 750 seats, a smaller 120-seat stage and an additional 70-seat one on the fourth floor.\n" +
+                        "\n" +
+                        "The building's facade is depicted on the obverse of the Bulgarian 50 levs banknote, issued in 1999 and 2006.\n" +
+                        "\n" +
+                        "The theatre has been host to productions from notable theatre directors such as Alexander Morfov who has been the Chief director since 1993.",
+                "5 Dyakon Igrantiy str.",
+                "09:00 - 21:00",
+                0.,
+                42.6944476,
+                23.3260587,
+                R.drawable.theatre
+        ));
+
         for (Places place: seedPlaces) {
             this.insert(place);
         }

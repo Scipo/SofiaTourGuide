@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.location.Location;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.home.sofiatourguide.NewMainActivity;
 import com.example.home.sofiatourguide.R;
@@ -17,6 +18,8 @@ import java.util.List;
 import DB.PlacesBaseHelper;
 import DB.PlacesCRUD;
 import model.Places;
+
+import static android.content.Context.NOTIFICATION_SERVICE;
 
 /**
  * Created by Mitko on 7.2.2018 г..
@@ -61,14 +64,6 @@ public class ServiceThread implements Runnable {
 
             if(nearestPlace != null){
                 Log.i("PLACE", nearestPlace.getTitle());
-                // https://stackoverflow.com/questions/1207269/sending-a-notification-from-a-service-in-android
-                // TODO: тъпия notification
-//                Intent intent = new Intent();
-//                PendingIntent pIntent = PendingIntent.getActivity(context, 0, intent, 0);
-//                Notification.Builder notification = new Notification.Builder(context)
-//                        .setTicker("TickerTitle")
-//                        .setContentTitle("Content Title")
-//                        .setContentText("Content Text");
             }
 
             try {
